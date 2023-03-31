@@ -7,6 +7,7 @@ require("dieter.neoline")
 require("dieter.compiler-explorer")
 require("dieter.which-key")
 require("dieter.unimpaired")
+require("dieter.todo-comments")
 
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
@@ -103,6 +104,7 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
     'clangd',
     'tsserver',
     'eslint',
+    'cmake',
   })
 
   -- don't initialize this language server
