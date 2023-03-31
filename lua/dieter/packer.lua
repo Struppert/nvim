@@ -129,5 +129,6 @@ return require('packer').startup(function(use)
     }
 
     use {"folke/which-key.nvim"} 
+    use {"tummetott/unimpaired.nvim"} 
 
 end)
