@@ -5,6 +5,7 @@ require("dieter.set")
 require("dieter.neotree")
 require("dieter.neoline")
 require("dieter.compiler-explorer")
+require("dieter.which-key")
 
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)

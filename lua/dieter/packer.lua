@@ -20,11 +20,11 @@ return require('packer').startup(function(use)
         end
     })
 
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-  } 
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        -- or                            , branch = '0.1.x',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    } 
 
     use({
         'rose-pine/neovim',
@@ -91,7 +91,7 @@ return require('packer').startup(function(use)
     use("eandrju/cellular-automaton.nvim")
     use("laytan/cloak.nvim")
 
- 
+
     -- use {'stevearc/overseer.nvim'}
     use {'hrsh7th/nvim-cmp'}
     use {'sar/cmp-lsp.nvim'}
@@ -108,24 +108,26 @@ return require('packer').startup(function(use)
         end,
     }
 
-use {
-    'HallerPatrick/py_lsp.nvim',
-    -- Support for versioning
-    -- tag = "v0.0.1" 
-}
-
-  use {'krady21/compiler-explorer.nvim'}
-  use {'stevearc/dressing.nvim'};
-  use {'rcarriga/nvim-notify'};
-
-use {
-  "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    requires = { 
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
+    use {
+        'HallerPatrick/py_lsp.nvim',
+        -- Support for versioning
+        -- tag = "v0.0.1" 
     }
-  }
+
+    use {'krady21/compiler-explorer.nvim'}
+    use {'stevearc/dressing.nvim'};
+    use {'rcarriga/nvim-notify'};
+
+    use {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
+        requires = { 
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+        }
+    }
+
+    use {"folke/which-key.nvim"} 
 
 end)
