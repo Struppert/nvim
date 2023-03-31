@@ -1,6 +1,11 @@
 require("dieter.remap")
 require("dieter.set")
+
+-- ab hier kommen die Plugins:
 require("dieter.neotree")
+require("dieter.neoline")
+require("dieter.compiler-explorer")
+
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
   ensure_installed = { "lua", "vim", "help", "query", "python" },
@@ -43,46 +48,6 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
-require('lualine').setup {
-  options = {
-    icons_enabled = true,
-    theme = 'auto',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
-    disabled_filetypes = {
-      statusline = {},
-      winbar = {},
-    },
-    ignore_focus = {},
-    always_divide_middle = true,
-    globalstatus = false,
-    refresh = {
-      statusline = 1000,
-      tabline = 1000,
-      winbar = 1000,
-    }
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {},
-  winbar = {},
-  inactive_winbar = {},
-  extensions = {}
-}
 
 require('telescope').setup{
   defaults = {
@@ -289,30 +254,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 require('overseer').setup()
 
-require("compiler-explorer").setup({
-  url = "https://godbolt.org",
-  infer_lang = true, -- Try to infer possible language based on file extension.
-  binary_hl = "Comment", -- Highlight group for binary extmarks/virtual text.
-  autocmd = {
-    enable = false, -- Enable highlighting matching lines between source and assembly windows.
-    hl = "Cursorline", -- Highlight group used for line match highlighting.
-  },
-  diagnostics = { -- vim.diagnostic.config() options for the ce-diagnostics namespace.
-    underline = false,
-    virtual_text = false,
-    signs = false,
-  },
-  open_qflist = false, --  Open qflist after compilation if there are diagnostics.
-  split = "split", -- How to split the window after the second compile (split/vsplit).
-  spinner_frames = { "⣼", "⣹", "⢻", "⠿", "⡟", "⣏", "⣧", "⣶" }, -- Compiling... spinner settings.
-  spinner_interval = 100,
-  compiler_flags = "", -- Default flags passed to the compiler.
-  job_timeout = 25000, -- Timeout for libuv job in milliseconds.
-  languages = { -- Language specific default compiler/flags
-    --c = {
-    --  compiler = "g121",
-    --  compiler_flags = "-O2 -Wall",
-    --},
-  },
 
-})
