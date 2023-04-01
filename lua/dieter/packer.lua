@@ -133,5 +133,5 @@ return require('packer').startup(function(use)
     use {"folke/which-key.nvim"}
     use {"tummetott/unimpaired.nvim"}
     use {"folke/todo-comments.nvim"}
-
+    use {'sindrets/diffview.nvim'}
 end)
