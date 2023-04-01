@@ -29,3 +29,7 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 vim.makeprg = "msbuild"
 --vim.opt.colorcolumn = "80"
+
+vim.g.python_host_prog= ""
+
+vim.g.python3_host_prog= "C:/Users/diete/.pyenv/pyenv-win/versions/3.11.0a4/python.exe"

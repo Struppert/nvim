@@ -134,4 +134,5 @@ return require('packer').startup(function(use)
     use {"tummetott/unimpaired.nvim"}
     use {"folke/todo-comments.nvim"}
     use {'sindrets/diffview.nvim'}
+    use {'gelguy/wilder.nvim'}
 end)
