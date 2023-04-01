@@ -29,6 +29,9 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 vim.makeprg = "msbuild"
 --vim.opt.colorcolumn = "80"
+--
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
 vim.g.python_host_prog= ""
 

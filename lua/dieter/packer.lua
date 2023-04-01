@@ -135,4 +135,6 @@ return require('packer').startup(function(use)
     use {"folke/todo-comments.nvim"}
     use {'sindrets/diffview.nvim'}
     use {'gelguy/wilder.nvim'}
+
+    use {'dbeniamine/cheat.sh-vim'}
 end)
