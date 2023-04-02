@@ -24,7 +24,7 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         -- or                            , branch = '0.1.x',
         requires = { {'nvim-lua/plenary.nvim'} }
-    } 
+    }
 
     use({
         'rose-pine/neovim',
@@ -47,17 +47,7 @@ return require('packer').startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 
-    use({
-        "folke/trouble.nvim",
-        config = function()
-            require("trouble").setup {
-                icons = false,
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
-        end
-    })
+    use({"folke/trouble.nvim"})
 
     use("theprimeagen/refactoring.nvim")
     use("mbbill/undotree")
@@ -137,4 +127,6 @@ return require('packer').startup(function(use)
     use {'gelguy/wilder.nvim'}
 
     use {'dbeniamine/cheat.sh-vim'}
+
+
 end)

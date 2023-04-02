@@ -90,6 +90,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cellular-automaton.nvim",
     url = "https://github.com/eandrju/cellular-automaton.nvim"
   },
+  ["cheat.sh-vim"] = {
+    loaded = true,
+    path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cheat.sh-vim",
+    url = "https://github.com/dbeniamine/cheat.sh-vim"
+  },
   ["cloak.nvim"] = {
     loaded = true,
     path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cloak.nvim",
@@ -201,11 +206,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nui.nvim",
     url = "https://github.com/MunifTanjim/nui.nvim"
   },
-  ["nvim-cheat.sh"] = {
-    loaded = true,
-    path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cheat.sh",
-    url = "https://github.com/RishabhRD/nvim-cheat.sh"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cmp",
@@ -245,11 +245,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
-  },
-  popfix = {
-    loaded = true,
-    path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\popfix",
-    url = "https://github.com/RishabhRD/popfix"
   },
   ["py_lsp.nvim"] = {
     loaded = true,

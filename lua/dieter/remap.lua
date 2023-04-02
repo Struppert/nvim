@@ -16,3 +16,4 @@ vim.api.nvim_set_keymap("o", "<", "[", { silent = true })
 vim.api.nvim_set_keymap("o", ">", "]", { silent = true })
 vim.api.nvim_set_keymap("x", "<", "[", { silent = true })
 vim.api.nvim_set_keymap("x", ">", "]", { silent = true })
+
