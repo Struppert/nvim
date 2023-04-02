@@ -2,16 +2,7 @@ require("dieter.remap")
 require("dieter.set")
 
 -- ab hier kommen die Plugins:
-require("dieter.neotree")
-require("dieter.neoline")
-require("dieter.compiler-explorer")
-require("dieter.which-key")
-require("dieter.unimpaired")
-require("dieter.todo-comments")
-require("dieter.wilder")
-require("dieter.hover")
-require("dieter.trouble")
-require("dieter.cmake-tools")
+
 
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
@@ -261,5 +252,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 --require('overseer').setup()
+require("dieter.neotree")
+require("dieter.neoline")
+require("dieter.compiler-explorer")
+require("dieter.which-key")
+require("dieter.unimpaired")
+require("dieter.todo-comments")
+require("dieter.wilder")
+require("dieter.hover")
+require("dieter.trouble")
+require("dieter.cmake-tools")
 
+--require('neoclip').setup()
+require("dieter.nvim-neoclip")
+require('telescope').load_extension('neoclip')
 

@@ -130,4 +130,12 @@ return require('packer').startup(function(use)
     use {'Civitasv/cmake-tools.nvim'}
 
     use {'roxma/nvim-yarp'}
+    use {"AckslD/nvim-neoclip.lua",
+    requires = {
+        {'kkharji/sqlite.lua', module = 'sqlite'},
+        -- you'll need at least one of these
+        {'nvim-telescope/telescope.nvim'},
+        -- {'ibhagwan/fzf-lua'},
+    },}
+
 end)
