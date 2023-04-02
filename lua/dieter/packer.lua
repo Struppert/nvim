@@ -127,6 +127,7 @@ return require('packer').startup(function(use)
     use {'gelguy/wilder.nvim'}
 
     use {'dbeniamine/cheat.sh-vim'}
+    use {'Civitasv/cmake-tools.nvim'}
 
-
+    use {'roxma/nvim-yarp'}
 end)

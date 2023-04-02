@@ -11,6 +11,7 @@ require("dieter.todo-comments")
 require("dieter.wilder")
 require("dieter.hover")
 require("dieter.trouble")
+require("dieter.cmake-tools")
 
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
