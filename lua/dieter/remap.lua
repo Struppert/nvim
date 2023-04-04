@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 
 --vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 -- Filebrowser
---vim.keymap.set("n", "<leader>pv", vim.cmd.Neotree)
+vim.keymap.set("n", "<leader>pv", vim.cmd.NvimTreeToggle)
 
 -- undotree
 vim.keymap.set('n', '<leader><F5>', vim.cmd.UndotreeToggle)

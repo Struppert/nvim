@@ -23,7 +23,20 @@ return require('packer').startup(function(use)
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         -- or                            , branch = '0.1.x',
+
         requires = { {'nvim-lua/plenary.nvim'} }
+    }
+
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional
+            'antosha417/nvim-lsp-file-operations',
+            'echasnovski/mini.base16',
+        },
+        config = function()
+            require("nvim-tree").setup {}
+        end
     }
 
     use({

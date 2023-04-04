@@ -1,5 +1,5 @@
-require("dieter.remap")
 require("dieter.set")
+require("dieter.remap")
 
 -- ab hier kommen die Plugins:
 require("dieter.lualine")
@@ -8,6 +8,7 @@ require("dieter.which-key")
 require("dieter.unimpaired")
 require("dieter.todo-comments")
 require("dieter.wilder")
+require("dieter.nvimtree")
 
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
