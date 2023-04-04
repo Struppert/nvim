@@ -110,16 +110,6 @@ return require('packer').startup(function(use)
     use {'stevearc/dressing.nvim'};
     use {'rcarriga/nvim-notify'};
 
-    use {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v2.x",
-        requires = {
-            "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-            "MunifTanjim/nui.nvim",
-        }
-    }
-
     use {"folke/which-key.nvim"}
     use {"tummetott/unimpaired.nvim"}
     use {"folke/todo-comments.nvim"}
@@ -130,12 +120,7 @@ return require('packer').startup(function(use)
     use {'Civitasv/cmake-tools.nvim'}
 
     use {'roxma/nvim-yarp'}
-    use {"AckslD/nvim-neoclip.lua",
-    requires = {
-        {'kkharji/sqlite.lua', module = 'sqlite'},
-        -- you'll need at least one of these
-        {'nvim-telescope/telescope.nvim'},
-        -- {'ibhagwan/fzf-lua'},
-    },}
+    use {"kkharji/sqlite.lua"}
+    use {"AckslD/nvim-neoclip.lua"}
 
 end)

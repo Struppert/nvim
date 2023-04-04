@@ -36,3 +36,4 @@ vim.o.smartcase = true
 vim.g.python_host_prog= ""
 
 vim.g.python3_host_prog= "C:/Users/diete/.pyenv/pyenv-win/versions/3.11.0a4/python.exe"
+vim.g.sqlite_clib_path= "c:/Users/diete/AppData/Local/nvim-data/databases/sqlite3.dll"
