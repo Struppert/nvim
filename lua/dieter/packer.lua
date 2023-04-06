@@ -136,4 +136,8 @@ return require('packer').startup(function(use)
     use {"kkharji/sqlite.lua"}
     use {"AckslD/nvim-neoclip.lua"}
 
+    use {"akinsho/toggleterm.nvim", tag = '*', config = function()  require("toggleterm").setup() end}
+
+    use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+
 end)

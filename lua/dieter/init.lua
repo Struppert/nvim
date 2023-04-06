@@ -1,7 +1,8 @@
 require("dieter.set")
 require("dieter.remap")
-
+--
 -- ab hier kommen die Plugins:
+--
 require("dieter.lualine")
 require("dieter.compiler-explorer")
 require("dieter.which-key")
@@ -9,6 +10,8 @@ require("dieter.unimpaired")
 require("dieter.todo-comments")
 require("dieter.wilder")
 require("dieter.nvimtree")
+require("dieter.toggleterm")
+require("dieter.bufferline")
 
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
@@ -84,8 +87,10 @@ require('telescope').setup{
   }
 }
 
+
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+--vim.keymap.set('n', '<leader>fz', builtin.search_dotfiles, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
