@@ -3,8 +3,7 @@ eine Liste mit noch zu erledigenden Dingen:
 settings für Neotree
 cmake
 build (msbuild ...)
-lfs (clangd) einrichten
-todo plugin
+async
+lfs (clangd) einrichten - docu lesen und verstehen
 
-
-
+which-key konfigurieren
