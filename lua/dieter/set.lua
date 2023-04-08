@@ -2,6 +2,15 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- powershell als default
+vim.cmd([[
+let &shell = executable('pwsh') ? 'powershell' : 'pwsh'
+let &shellcmdflag = '-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues[''Out-File:Encoding'']=''utf8'';'
+let &shellredir = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode'
+let &shellpipe  = '2>&1 | %%{ "$_" } | Tee-Object %s; exit $LastExitCode'
+:set shellquote= shellxquote=
+]])
+
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 

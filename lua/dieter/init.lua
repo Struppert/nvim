@@ -262,12 +262,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
---require('overseer').setup():
+require('dieter.overseer')
 require("dieter.hover")
 require("dieter.trouble")
 require("dieter.cmake-tools")
 
---require('neoclip').setup()
 require("dieter.nvim-neoclip")
 require('telescope').load_extension('neoclip')
 

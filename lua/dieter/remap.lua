@@ -29,3 +29,12 @@ vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]])
 vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]])
 
 
+vim.api.nvim_set_keymap("n", "<leader>oo", "<cmd>OverseerToggle<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<leader>or", "<cmd>OverseerRun<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<leader>oc", "<cmd>OverseerRunCmd<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<leader>ol", "<cmd>OverseerLoadBundle<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<leader>ob", "<cmd>OverseerBuild<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<leader>od", "<cmd>OverseerQuickAction<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<leader>od", "<cmd>OverseerTaskAction<CR>", { silent = true })
+
+

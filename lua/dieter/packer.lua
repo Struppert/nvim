@@ -139,4 +139,10 @@ return require('packer').startup(function(use)
     use {"akinsho/toggleterm.nvim", tag = '*', config = function()  require("toggleterm").setup() end}
     use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
     use {"lewis6991/hover.nvim"}
+
+    use {
+      'stevearc/overseer.nvim',
+      config = function() require('overseer').setup() end
+    }
+
 end)
