@@ -145,4 +145,5 @@ return require('packer').startup(function(use)
       config = function() require('overseer').setup() end
     }
 
+    use {'p00f/clangd_extensions.nvim'}
 end)

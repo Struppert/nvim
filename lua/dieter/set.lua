@@ -1,3 +1,11 @@
+
+if vim.g.neovide then
+    -- Put anything you want to happen only in Neovide here
+    vim.o.guifont ="CaskaydiaCove Nerd Font Mono:h12"
+else
+
+end
+
 --vim.opt.guicursor = ""
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -13,6 +21,8 @@ let &shellpipe  = '2>&1 | %%{ "$_" } | Tee-Object %s; exit $LastExitCode'
 
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
+
+vim.cmd('colorscheme gruvbox-material')
 
 -- empty setup using defaults
 require("nvim-tree").setup()

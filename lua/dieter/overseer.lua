@@ -1,6 +1,6 @@
 require('overseer').setup(
 {
-    templates = {strategy = "toggleterm", "builtin", "user.cpp_build" },
+    templates = {strategy = "toggleterm", "builtin", "user.msbuild" },
     actions = {
     ["My custom action"] = {
       desc = "This is an optional description. It may be omitted.",
