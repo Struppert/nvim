@@ -16,3 +16,6 @@ noch ein Session-Plugin und ein TODO-List-Plugin
 Neovide soll in mehreren Fenstern immer die selbe Instanz von nvim haben.
 nvim --headless --listen localhost:6666
 /path/to/neovide --server=localhost:6666
+
+
+snippets verstehen und konfigurieren

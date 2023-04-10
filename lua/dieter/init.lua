@@ -284,4 +284,5 @@ require('telescope').setup{
 
         require("dieter.clangd_extensions")
         require("dieter.rainbow2")
+        require("dieter.luasnip")
 

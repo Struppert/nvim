@@ -141,10 +141,16 @@ return require('packer').startup(function(use)
     use {"lewis6991/hover.nvim"}
 
     use {
-      'stevearc/overseer.nvim',
-      config = function() require('overseer').setup() end
+        'stevearc/overseer.nvim',
+        config = function() require('overseer').setup() end
     }
 
     use {'p00f/clangd_extensions.nvim'}
     use {'HiPhish/nvim-ts-rainbow2'}
+
+    use{
+        "L3MON4D3/LuaSnip",
+        run = "make install_jsregexp"
+    }
+
 end)
