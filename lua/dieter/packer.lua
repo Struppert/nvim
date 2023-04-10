@@ -146,4 +146,5 @@ return require('packer').startup(function(use)
     }
 
     use {'p00f/clangd_extensions.nvim'}
+    use {'HiPhish/nvim-ts-rainbow2'}
 end)

@@ -1,9 +1,18 @@
 
 eine Liste mit noch zu erledigenden Dingen:
+
 settings für Neotree
 cmake
 build (msbuild ...)
-async
+overseers: muss aber noch richtig konfiguriert werden.
+
+ts-rainbow2 tut nicht: richtig Konfigurieren oder entsorgen.
+
 lfs (clangd) einrichten - docu lesen und verstehen
 
 which-key konfigurieren
+noch ein Session-Plugin und ein TODO-List-Plugin
+
+Neovide soll in mehreren Fenstern immer die selbe Instanz von nvim haben.
+nvim --headless --listen localhost:6666
+/path/to/neovide --server=localhost:6666

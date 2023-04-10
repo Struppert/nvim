@@ -283,4 +283,5 @@ require('telescope').setup{
         require('telescope').load_extension('neoclip')
 
         require("dieter.clangd_extensions")
+        require("dieter.rainbow2")
 

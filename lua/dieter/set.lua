@@ -22,8 +22,9 @@ let &shellpipe  = '2>&1 | %%{ "$_" } | Tee-Object %s; exit $LastExitCode'
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
-vim.cmd('colorscheme gruvbox-material')
+vim.opt.clipboard = "unnamedplus"
 
+vim.cmd('colorscheme gruvbox-material')
 -- empty setup using defaults
 require("nvim-tree").setup()
 
