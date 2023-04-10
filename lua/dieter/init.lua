@@ -286,3 +286,8 @@ require('telescope').setup{
         require("dieter.rainbow2")
         require("dieter.luasnip")
 
+        require("dieter.workspaces")
+        require('telescope').load_extension('workspaces')
+
+        require("dieter.sessions")
+

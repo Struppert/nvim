@@ -148,9 +148,11 @@ return require('packer').startup(function(use)
     use {'p00f/clangd_extensions.nvim'}
     use {'HiPhish/nvim-ts-rainbow2'}
 
-    use{
+    use {
         "L3MON4D3/LuaSnip",
         run = "make install_jsregexp"
     }
 
+    use {'natecraddock/workspaces.nvim'}
+    use {'natecraddock/sessions.nvim'}
 end)
