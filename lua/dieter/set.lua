@@ -25,8 +25,6 @@ vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamedplus"
 
 vim.cmd('colorscheme gruvbox-material')
--- empty setup using defaults
-require("nvim-tree").setup()
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
