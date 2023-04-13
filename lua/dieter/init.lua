@@ -99,14 +99,6 @@ require('telescope').setup{
             }
         }
 
-
-        local builtin = require('telescope.builtin')
-        vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-        --vim.keymap.set('n', '<leader>fz', builtin.search_dotfiles, {})
-        vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-        vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-        vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-
         vim.opt.signcolumn = 'yes'
 
         local lsp = require('lsp-zero').preset({
@@ -234,7 +226,6 @@ require('telescope').setup{
         -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
         -- require('lspconfig')['<YOUR_LSP_SERVER>'].setup { capabilities = capabilities}
 
-        require('leap').add_default_mappings()
 
         -- Global mappings.
         -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -290,4 +281,8 @@ require('telescope').setup{
         require('telescope').load_extension('workspaces')
 
         require("dieter.sessions")
+        require("dieter.legendary")
+
+
+        require('leap').add_default_mappings()
 

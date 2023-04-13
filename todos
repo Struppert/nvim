@@ -10,7 +10,7 @@ ts-rainbow2 tut nicht: richtig Konfigurieren oder entsorgen.
 
 lfs (clangd) einrichten - docu lesen und verstehen
 
-which-key konfigurieren
+which-key und legendary konfigurieren
 noch ein Session-Plugin und ein TODO-List-Plugin
 
 Neovide soll in mehreren Fenstern immer die selbe Instanz von nvim haben.
@@ -22,5 +22,6 @@ snippets verstehen und konfigurieren
  
 hover durch null-ls ersetzen?
 
-neorg als Projekt-Management?
+harpoon ?
 
+wilder init von Python hat nicht geklappt (messages)

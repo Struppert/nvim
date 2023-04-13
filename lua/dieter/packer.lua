@@ -155,4 +155,6 @@ return require('packer').startup(function(use)
 
     use {'natecraddock/workspaces.nvim'}
     use {'natecraddock/sessions.nvim'}
+    use({'mrjones2014/legendary.nvim'})
+
 end)
