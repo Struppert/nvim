@@ -112,7 +112,6 @@ lsp.ensure_installed({
     'clangd',
     'tsserver',
     'eslint',
-    'cmake',
 })
 
 -- don't initialize this language server
@@ -266,7 +265,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 require('dieter.overseer')
 require("dieter.hover")
 require("dieter.trouble")
-require("dieter.cmake-tools")
+--require("dieter.cmake-tools")
 
 require("dieter.nvim-neoclip")
 require('telescope').load_extension('neoclip')

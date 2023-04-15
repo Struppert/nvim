@@ -16,9 +16,8 @@ else
             -- commands
             { '<leader>cc', ':Telescope commands<CR>',   description = 'telescope commands'            },
             { '<leader>ch', ':Telescope command_history<CR>', description = 'telescope command_history'},
-
+            -- harpoon marks
             { '<leader>hm', ':Telescope harpoon marks<CR>', description = 'harpoon marks'},
-
 
             -- harpoon
             { '<leader>hca', ':lua require("harpoon.mark").add_file()<CR>',       description = 'harpoon add file'},
