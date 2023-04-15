@@ -153,8 +153,9 @@ return require('packer').startup(function(use)
         run = "make install_jsregexp"
     }
 
+    use {'ThePrimeagen/harpoon'}
     use {'natecraddock/workspaces.nvim'}
     use {'natecraddock/sessions.nvim'}
-    use({'mrjones2014/legendary.nvim'})
-
+    use {'mrjones2014/legendary.nvim'}
+    use {'abecodes/tabout.nvim'}
 end)

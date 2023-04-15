@@ -25,3 +25,25 @@ hover durch null-ls ersetzen?
 harpoon ?
 
 wilder init von Python hat nicht geklappt (messages)
+
+
+weitere Plugins:
+abecodes/tabout.nvim
+folke/noice.nvim
+folke/twilight.nvim
+folke/tokyonight.nvim
+folke/zen-mode.nvim
+LintaoAmons/scratch.nvim
+
+debuggen:
+mfussenegger/nvim-dap
+theHamsta/nvim-dap-virtual-text
+rcarriga/nvim-dap-ui
+nvim-telescope/telescope-dap.nvim
+
+nvim-treesitter/nvim-treesitter-textobjects
+mizlan/iswap.nvim
+
+jose-elias-alvarez/null-ls.nvim
+
+kevinhwang91/nvim-bqf

@@ -15,7 +15,21 @@ else
             { '<leader>fn', ':Telescope neoclip<CR>',    description = 'telescope neoclip'             },
             -- commands
             { '<leader>cc', ':Telescope commands<CR>',   description = 'telescope commands'            },
-            { '<leader>ch', ':Telescope command_historx<CR>', description = 'telescope command_history'},
+            { '<leader>ch', ':Telescope command_history<CR>', description = 'telescope command_history'},
+
+            { '<leader>hm', ':Telescope harpoon marks<CR>', description = 'harpoon marks'},
+
+
+            -- harpoon
+            { '<leader>hca', ':lua require("harpoon.mark").add_file()<CR>',       description = 'harpoon add file'},
+            { '<leader>hct', ':lua require("harpoon.ui").toggle_quick_menu()<CR>',description = 'harpoon toggle_quick_menu'},
+            { '<leader>hf', ':lua require("harpoon.ui").nav_file(1)<CR>',         description = 'harpoon nav_file 1'},
+            { '<leader>hd', ':lua require("harpoon.ui").nav_file(2)<CR>',         description = 'harpoon nav_file 2'},
+            { '<leader>hs', ':lua require("harpoon.ui").nav_file(3)<CR>',         description = 'harpoon nav_file 3'},
+            { '<leader>ha', ':lua require("harpoon.ui").nav_file(4)<CR>',         description = 'harpoon nav_file 4'},
+            { '<leader>hcn', ':lua require("harpoon.ui").nav_next()<CR>', description = 'harpoon nav_next'},
+            { '<leader>hcp', ':lua require("harpoon.ui").nav_prev()<CR>', description = 'harpoon nav_prev'},
+
 
 
 
@@ -25,13 +39,13 @@ else
             --
             -- map keys to a function
             --
-            {
-                '<leader>h',
-                function()
-                    print('hello world!')
-                end,
-                description = 'Say hello',
-            },
+            --{
+            --    '<leader>h',
+            --    function()
+            --        print('hello world!')
+            --    end,
+            --    description = 'Say hello',
+            --},
             -- Set options used during keymap creation
             { '<leader>s', ':SomeCommand<CR>', description = 'Non-silent keymap', opts = { silent = true } },
             -- create keymaps with different implementations per-mode
