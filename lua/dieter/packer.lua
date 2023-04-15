@@ -12,6 +12,13 @@ return require('packer').startup(function(use)
         -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
     }
 
+    use {'sainnhe/sonokai'}
+    use {'catppuccin/nvim'}
+    use {'rebelot/kanagawa.nvim'}
+    use {'sainnhe/everforest'}
+    use {'sainnhe/edge'}
+    use {'EdenEast/nightfox.nvim'}
+
     use({
         'sainnhe/gruvbox-material',
         as = 'gruvbox-material',
@@ -19,6 +26,8 @@ return require('packer').startup(function(use)
             vim.cmd('colorscheme gruvbox-material')
         end
     })
+
+    use {'folke/tokyonight.nvim'}
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -157,4 +166,7 @@ return require('packer').startup(function(use)
     use {'natecraddock/sessions.nvim'}
     use {'mrjones2014/legendary.nvim'}
     use {'abecodes/tabout.nvim'}
+
 end)
+
+

@@ -110,11 +110,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cloak.nvim",
     url = "https://github.com/laytan/cloak.nvim"
   },
-  ["cmake-tools.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmake-tools.nvim",
-    url = "https://github.com/Civitasv/cmake-tools.nvim"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-buffer",
@@ -170,6 +165,16 @@ _G.packer_plugins = {
     path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\dressing.nvim",
     url = "https://github.com/stevearc/dressing.nvim"
   },
+  edge = {
+    loaded = true,
+    path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\edge",
+    url = "https://github.com/sainnhe/edge"
+  },
+  everforest = {
+    loaded = true,
+    path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\everforest",
+    url = "https://github.com/sainnhe/everforest"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\friendly-snippets",
@@ -186,15 +191,30 @@ _G.packer_plugins = {
     path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gruvbox-material",
     url = "https://github.com/sainnhe/gruvbox-material"
   },
+  harpoon = {
+    loaded = true,
+    path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\harpoon",
+    url = "https://github.com/ThePrimeagen/harpoon"
+  },
   ["hover.nvim"] = {
     loaded = true,
     path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\hover.nvim",
     url = "https://github.com/lewis6991/hover.nvim"
   },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
+  },
   ["leap.nvim"] = {
     loaded = true,
     path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\leap.nvim",
     url = "https://github.com/ggandor/leap.nvim"
+  },
+  ["legendary.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\legendary.nvim",
+    url = "https://github.com/mrjones2014/legendary.nvim"
   },
   ["lsp-zero.nvim"] = {
     loaded = true,
@@ -220,6 +240,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mini.base16",
     url = "https://github.com/echasnovski/mini.base16"
+  },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
+  },
+  nvim = {
+    loaded = true,
+    path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim",
+    url = "https://github.com/catppuccin/nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -314,10 +344,20 @@ _G.packer_plugins = {
     path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\sessions.nvim",
     url = "https://github.com/natecraddock/sessions.nvim"
   },
+  sonokai = {
+    loaded = true,
+    path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\sonokai",
+    url = "https://github.com/sainnhe/sonokai"
+  },
   ["sqlite.lua"] = {
     loaded = true,
     path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\sqlite.lua",
     url = "https://github.com/kkharji/sqlite.lua"
+  },
+  ["tabout.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\tabout.nvim",
+    url = "https://github.com/abecodes/tabout.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
@@ -334,6 +374,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
+  },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\diete\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
   },
   ["trouble.nvim"] = {
     loaded = true,
@@ -383,14 +428,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
-time([[Config for nvim-tree.lua]], false)
--- Config for: overseer.nvim
-time([[Config for overseer.nvim]], true)
-try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\roverseer\frequire\0", "config", "overseer.nvim")
-time([[Config for overseer.nvim]], false)
 -- Config for: rose-pine
 time([[Config for rose-pine]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\0", "config", "rose-pine")
@@ -399,6 +436,14 @@ time([[Config for rose-pine]], false)
 time([[Config for alpha-nvim]], true)
 try_loadstring("\27LJ\2\n`\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\26alpha.themes.startify\nsetup\nalpha\frequire\0", "config", "alpha-nvim")
 time([[Config for alpha-nvim]], false)
+-- Config for: overseer.nvim
+time([[Config for overseer.nvim]], true)
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\roverseer\frequire\0", "config", "overseer.nvim")
+time([[Config for overseer.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
+time([[Config for nvim-tree.lua]], false)
 -- Config for: toggleterm.nvim
 time([[Config for toggleterm.nvim]], true)
 try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
