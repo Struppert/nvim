@@ -169,6 +169,18 @@ cmp.setup({
             -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
         end,
     },
+    sorting = {
+        comparators = {
+            cmp.config.compare.offset,
+            cmp.config.compare.exact,
+            cmp.config.compare.recently_used,
+            require("clangd_extensions.cmp_scores"),
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.length,
+            cmp.config.compare.order,
+        },
+    },
     mapping = {
         ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
         ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
@@ -214,12 +226,14 @@ require 'cmp'.setup {
 }
 
 -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+--local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+-- wird von clangd_extensions uebernommen.
 -- The following example advertise capabilities to `clangd`.
-require 'lspconfig'.clangd.setup {
-    capabilities = capabilities,
-}
+--require 'lspconfig'.clangd.setup {
+--    capabilities = capabilities,
+--}
+--
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 -- require('lspconfig')['<YOUR_LSP_SERVER>'].setup { capabilities = capabilities}
 
