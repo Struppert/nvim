@@ -16,24 +16,24 @@ noch ein Session-Plugin und ein TODO-List-Plugin
 Neovide soll in mehreren Fenstern immer die selbe Instanz von nvim haben.
 nvim --headless --listen localhost:6666
 /path/to/neovide --server=localhost:6666
-
+folgendes noch ausprobieren:
+Set objShell = WScript.CreateObject("WScript.Shell")
+objShell.Run("C:\yourbatch.bat"), 0, True
 
 snippets verstehen und konfigurieren
  
 hover durch null-ls ersetzen?
 
-harpoon richtig konfigurieren
-
 wilder init von Python hat nicht geklappt (messages)
 
-
 weitere Plugins:
-abecodes/tabout.nvim
-folke/noice.nvim
-folke/twilight.nvim
-folke/tokyonight.nvim
+folke/noice.nvim (eher nicht)
 folke/zen-mode.nvim
+
+
 LintaoAmons/scratch.nvim
+metakirby5/codi.vim
+michaelb/sniprun
 
 debuggen:
 mfussenegger/nvim-dap
@@ -45,5 +45,8 @@ nvim-treesitter/nvim-treesitter-textobjects
 mizlan/iswap.nvim
 
 jose-elias-alvarez/null-ls.nvim
+
+konfiguration von clangd und clangd_extensions stimmt noch nicht.
+lsp liefert bei F4 nichts brauchbares.
 
 kevinhwang91/nvim-bqf

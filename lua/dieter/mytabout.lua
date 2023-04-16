@@ -1,8 +1,9 @@
 
 local ok, mymod = pcall(require, 'tabout')
 if not ok then
-    print("Module legendary had an error")
+    print("Module tabout had an error")
 else
+    --print("Module tabout")
     mymod.setup ({
         tabkey = '<Tab>', -- key to trigger tabout, set to an empty string to disable
         backwards_tabkey = '<S-Tab>', -- key to trigger backwards tabout, set to an empty string to disable
@@ -23,5 +24,8 @@ else
         },
         ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
         exclude = {} -- tabout will ignore these filetypes
-    })
+    }, print('tabout setup'))
+    return {
+        mymod.setup()
+    }
 end

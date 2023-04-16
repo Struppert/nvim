@@ -24,7 +24,8 @@ vim.opt.termguicolors = true
 
 vim.opt.clipboard = "unnamedplus"
 
-vim.cmd('colorscheme gruvbox-material')
+--vim.cmd('colorscheme gruvbox-material')
+--vim.cmd[[colorscheme tokyonight]]
 
 vim.opt.nu = true
 vim.opt.relativenumber = true

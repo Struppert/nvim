@@ -283,9 +283,9 @@ require('telescope').load_extension('workspaces')
 require("dieter.sessions")
 require("dieter.legendary")
 
--- tabout hat ein Problem mit legendary
---require("dieter.tabout")
+require("dieter.mytabout")
 
 require('leap').add_default_mappings()
 
+vim.cmd('colorscheme gruvbox-material')
 
