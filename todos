@@ -23,6 +23,7 @@ objShell.Run("C:\yourbatch.bat"), 0, True
 snippets verstehen und konfigurieren
  
 hover durch null-ls ersetzen?
+null-ls tut in Trouble aber noch was zu tun.
 
 wilder init von Python hat nicht geklappt (messages)
 

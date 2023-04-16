@@ -298,7 +298,7 @@ require("dieter.sessions")
 require("dieter.legendary")
 
 require("dieter.mytabout")
-
+require("dieter.mynull-ls")
 require('leap').add_default_mappings()
 
 vim.cmd('colorscheme gruvbox-material')
