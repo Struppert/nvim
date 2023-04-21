@@ -167,8 +167,9 @@ return require('packer').startup(function(use)
     use {'mrjones2014/legendary.nvim'}
     use {'abecodes/tabout.nvim'}
 
+    use {'gbrlsnchs/telescope-lsp-handlers.nvim'}
     use {'jose-elias-alvarez/null-ls.nvim'}
-
+    use {'nvim-treesitter/nvim-treesitter-textobjects'}
     use {
         "folke/twilight.nvim",
         config = function()

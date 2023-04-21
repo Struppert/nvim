@@ -13,6 +13,9 @@ else
             { '<leader>fb', ':Telescope buffers<CR>',    description = 'live buffers'                  },
             { '<leader>fh', ':Telescope help_tags<CR>',  description = 'telescope help'                },
             { '<leader>fn', ':Telescope neoclip<CR>',    description = 'telescope neoclip'             },
+            -- sucht nach Dateien in nvim
+            { '<leader>fa', function () require('telescope.builtin').find_files{cwd = '~/AppData/Local/nvim'} end, description = 'telescope find file in Home' },
+
             -- commands
             { '<leader>cc', ':Telescope commands<CR>',   description = 'telescope commands'            },
             { '<leader>ch', ':Telescope command_history<CR>', description = 'telescope command_history'},

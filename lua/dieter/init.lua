@@ -63,6 +63,48 @@ require 'nvim-treesitter.configs'.setup {
         -- Instead of true it can also be a list of languages
         additional_vim_regex_highlighting = false,
     },
+    textobjects = {
+        select = {
+            enable = true,
+
+            -- Automatically jump forward to textobj, similar to targets.vim
+            lookahead = true,
+
+            keymaps = {
+                -- You can use the capture groups defined in textobjects.scm
+                ["af"] = "@function.outer",
+                ["if"] = "@function.inner",
+                ["ac"] = "@class.outer",
+                -- You can optionally set descriptions to the mappings (used in the desc parameter of
+                -- nvim_buf_set_keymap) which plugins like which-key display
+                ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+                -- You can also use captures from other query groups like `locals.scm`
+                ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+            },
+            -- You can choose the select mode (default is charwise 'v')
+            --
+            -- Can also be a function which gets passed a table with the keys
+            -- * query_string: eg '@function.inner'
+            -- * method: eg 'v' or 'o'
+            -- and should return the mode ('v', 'V', or '<c-v>') or a table
+            -- mapping query_strings to modes.
+            selection_modes = {
+                ['@parameter.outer'] = 'v', -- charwise
+                ['@function.outer'] = 'V', -- linewise
+                ['@class.outer'] = '<c-v>', -- blockwise
+            },
+            -- If you set this to `true` (default is `false`) then any textobject is
+            -- extended to include preceding or succeeding whitespace. Succeeding
+            -- whitespace has priority in order to act similarly to eg the built-in
+            -- `ap`.
+            --
+            -- Can also be a function which gets passed a table with the keys
+            -- * query_string: eg '@function.inner'
+            -- * selection_mode: eg 'v'
+            -- and should return true of false
+            include_surrounding_whitespace = true,
+        },
+    },
 }
 
 
@@ -82,224 +124,247 @@ require('telescope').setup {
     pickers = {
         -- Default configuration for builtin pickers goes here:
         -- picker_name = {
-        --   picker_config_key = value,
-        --   ...
-        -- }
-        -- Now the picker_config_key will be applied every time you call this
-        -- builtin picker
-    },
-    extensions = {
-        -- Your extension configuration goes here:
-        -- extension_name = {
-        --   extension_config_key = value,
-        -- }
-        -- please take a look at the readme of the extension you want to configure
-    }
-}
-
-vim.opt.signcolumn = 'yes'
-
-local lsp = require('lsp-zero').preset({
-    name = 'minimal',
-    set_lsp_keymaps = true,
-    manage_nvim_cmp = true,
-    suggest_lsp_servers = false,
-})
-
--- make sure this servers are installed
--- see :help lsp-zero.ensure_installed()
-lsp.ensure_installed({
-    'clangd',
-    'tsserver',
-    'eslint',
-})
-
--- don't initialize this language server
--- we will use rust-tools to setup rust_analyzer
-lsp.skip_server_setup({ 'rust_analyzer' })
-
--- the function below will be executed whenever
--- a language server is attached to a buffer
-lsp.on_attach(function(client, bufnr)
-    print('Greetings from on_attach')
-end)
-
--- pass arguments to a language server
--- see :help lsp-zero.configure()
-lsp.configure('tsserver', {
-    on_attach = function(client, bufnr)
-        print('hello tsserver')
-    end,
-    settings = {
-        completions = {
-            completeFunctionCalls = true
-        }
-    }
-})
-
--- share configuration between multiple servers
--- see :help lsp-zero.setup_servers()
-lsp.setup_servers({
-    'eslint',
-    'angularls',
-    opts = {
-        single_file_support = false,
-        on_attach = function(client, bufnr)
-            print("I'm doing web dev")
-        end
-    }
-})
-
--- configure lua language server for neovim
--- see :help lsp-zero.nvim_workspace()
-lsp.nvim_workspace()
-
-lsp.setup()
-
--- Setup nvim-cmp.
-local cmp = require 'cmp'
-
-cmp.setup({
-    snippet = {
-        -- REQUIRED - you must specify a snippet engine
-        expand = function(args)
-            --vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-            require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-            -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-            -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
-        end,
-    },
-    sorting = {
-        comparators = {
-            cmp.config.compare.offset,
-            cmp.config.compare.exact,
-            cmp.config.compare.recently_used,
-            require("clangd_extensions.cmp_scores"),
-            cmp.config.compare.kind,
-            cmp.config.compare.sort_text,
-            cmp.config.compare.length,
-            cmp.config.compare.order,
+            --   picker_config_key = value,
+            --   ...
+            -- }
+            -- Now the picker_config_key will be applied every time you call this
+            -- builtin picker
         },
-    },
-    mapping = {
-        ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-        ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-        ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-        ['<C-e>'] = cmp.mapping({
-            i = cmp.mapping.abort(),
-            c = cmp.mapping.close(),
-        }),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    },
-    sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'vsnip' }, -- For vsnip users.
-        -- { name = 'luasnip' }, -- For luasnip users.
-        -- { name = 'ultisnips' }, -- For ultisnips users.
-        -- { name = 'snippy' }, -- For snippy users.
-    }, {
-        { name = 'buffer' },
-    })
-})
+        extensions = {
+            -- Your extension configuration goes here:
+            -- extension_name = {
+                --   extension_config_key = value,
+                -- }
+                -- please take a look at the readme of the extension you want to configure
+                lsp_handlers = {
+                    code_action = {
+                        telescope = require('telescope.themes').get_dropdown({}),
+                    },
+                },
+            }
+        }
 
--- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline('/', {
-    sources = {
-        { name = 'buffer' }
-    }
-})
+        vim.opt.signcolumn = 'yes'
 
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
-    sources = cmp.config.sources({
-        { name = 'path' }
-    }, {
-        { name = 'cmdline' }
-    })
-})
+        local lsp = require('lsp-zero').preset({
+            name = 'minimal',
+            set_lsp_keymaps = true,
+            manage_nvim_cmp = true,
+            suggest_lsp_servers = false,
+        })
 
-require 'cmp'.setup {
-    sources = {
-        { name = 'nvim_lsp' }
-    }
-}
+        -- make sure this servers are installed
+        -- see :help lsp-zero.ensure_installed()
+        lsp.ensure_installed({
+            'clangd',
+            'tsserver',
+            'eslint',
+        })
 
--- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
---local capabilities = require('cmp_nvim_lsp').default_capabilities()
+        -- don't initialize this language server
+        -- we will use rust-tools to setup rust_analyzer
+        lsp.skip_server_setup({ 'rust_analyzer' })
 
--- wird von clangd_extensions uebernommen.
--- The following example advertise capabilities to `clangd`.
---require 'lspconfig'.clangd.setup {
---    capabilities = capabilities,
---}
---
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
--- require('lspconfig')['<YOUR_LSP_SERVER>'].setup { capabilities = capabilities}
+        -- the function below will be executed whenever
+        -- a language server is attached to a buffer
+        lsp.on_attach(function(client, bufnr)
+            print('Greetings from on_attach')
+        end)
+
+        -- pass arguments to a language server
+        -- see :help lsp-zero.configure()
+        lsp.configure('tsserver', {
+            on_attach = function(client, bufnr)
+                print('hello tsserver')
+            end,
+            settings = {
+                completions = {
+                    completeFunctionCalls = true
+                }
+            }
+        })
+
+        -- share configuration between multiple servers
+        -- see :help lsp-zero.setup_servers()
+        lsp.setup_servers({
+            'eslint',
+            'angularls',
+            opts = {
+                single_file_support = false,
+                on_attach = function(client, bufnr)
+                    print("I'm doing web dev")
+                end
+            }
+        })
+
+        -- configure lua language server for neovim
+        -- see :help lsp-zero.nvim_workspace()
+        lsp.nvim_workspace()
+
+        lsp.setup()
+
+        -- Setup nvim-cmp.
+        local cmp = require 'cmp'
+
+        cmp.setup({
+            snippet = {
+                -- REQUIRED - you must specify a snippet engine
+                expand = function(args)
+                    --vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+                    require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+                    -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+                    -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
+                end,
+            },
+            sorting = {
+                comparators = {
+                    cmp.config.compare.offset,
+                    cmp.config.compare.exact,
+                    cmp.config.compare.recently_used,
+                    require("clangd_extensions.cmp_scores"),
+                    cmp.config.compare.kind,
+                    cmp.config.compare.sort_text,
+                    cmp.config.compare.length,
+                    cmp.config.compare.order,
+                },
+            },
+            mapping = {
+                ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+                ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+                ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+                ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+                ['<C-e>'] = cmp.mapping({
+                    i = cmp.mapping.abort(),
+                    c = cmp.mapping.close(),
+                }),
+                ['<CR>'] = cmp.mapping.confirm({ select = true }),
+            },
+            sources = cmp.config.sources({
+                { name = 'nvim_lsp' },
+                { name = 'vsnip' }, -- For vsnip users.
+                -- { name = 'luasnip' }, -- For luasnip users.
+                -- { name = 'ultisnips' }, -- For ultisnips users.
+                -- { name = 'snippy' }, -- For snippy users.
+            }, {
+                { name = 'buffer' },
+            })
+        })
+
+        -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+        cmp.setup.cmdline('/', {
+            sources = {
+                { name = 'buffer' }
+            }
+        })
+
+        -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+        cmp.setup.cmdline(':', {
+            sources = cmp.config.sources({
+                { name = 'path' }
+            }, {
+                { name = 'cmdline' }
+            })
+        })
+
+        require 'cmp'.setup {
+            sources = {
+                { name = 'nvim_lsp' }
+            }
+        }
+
+        -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
+        --local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+        -- wird von clangd_extensions uebernommen.
+        -- The following example advertise capabilities to `clangd`.
+        --require 'lspconfig'.clangd.setup {
+            --    capabilities = capabilities,
+            --}
+            --
+            -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+            -- require('lspconfig')['<YOUR_LSP_SERVER>'].setup { capabilities = capabilities}
 
 
--- Global mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+            -- Global mappings.
+            -- See `:help vim.diagnostic.*` for documentation on any of the below functions
+            vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+            vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+            vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+            vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
--- Use LspAttach autocommand to only map the following keys
--- after the language server attaches to the current buffer
-vim.api.nvim_create_autocmd('LspAttach', {
-    group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-    callback = function(ev)
-        -- Enable completion triggered by <c-x><c-o>
-        vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+            -- Use LspAttach autocommand to only map the following keys
+            -- after the language server attaches to the current buffer
+            vim.api.nvim_create_autocmd('LspAttach', {
+                group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+                callback = function(ev)
+                    -- Enable completion triggered by <c-x><c-o>
+                    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-        -- Buffer local mappings.
-        -- See `:help vim.lsp.*` for documentation on any of the below functions
-        local opts = { buffer = ev.buf }
-        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-        vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-        vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
-        vim.keymap.set('n', '<space>wl', function()
-            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        end, opts)
-        vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-        vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-        vim.keymap.set('n', '<space>f', function()
-            vim.lsp.buf.format { async = true }
-        end, opts)
-    end,
-})
+                    -- Buffer local mappings.
+                    -- See `:help vim.lsp.*` for documentation on any of the below functions
+                    local opts = { buffer = ev.buf }
+                    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+                    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+                    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+                    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+                    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+                    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+                    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+                    vim.keymap.set('n', '<space>wl', function()
+                        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+                    end, opts)
+                    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+                    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+                    vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
+                    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+                    vim.keymap.set('n', '<space>f', function()
+                        vim.lsp.buf.format { async = true }
+                    end, opts)
+                end,
+            })
 
-require('dieter.overseer')
-require("dieter.hover")
-require("dieter.trouble")
---require("dieter.cmake-tools")
+            require('dieter.overseer')
+            require("dieter.hover")
+            require("dieter.trouble")
+            --require("dieter.cmake-tools")
 
-require("dieter.nvim-neoclip")
-require('telescope').load_extension('neoclip')
+            require("dieter.nvim-neoclip")
+            require('telescope').load_extension('neoclip')
 
--- muss hier nicht geladen werden
-require("telescope").load_extension('harpoon')
+            -- muss hier nicht geladen werden
+            require("telescope").load_extension('harpoon')
 
-require("dieter.clangd_extensions")
-require("dieter.rainbow2")
-require("dieter.myluasnip")
+            require("dieter.clangd_extensions")
+            require("dieter.rainbow2")
+            require("dieter.myluasnip")
 
-require("dieter.workspaces")
-require('telescope').load_extension('workspaces')
+            require("dieter.workspaces")
+            require('telescope').load_extension('workspaces')
 
-require("dieter.sessions")
-require("dieter.legendary")
+            require("dieter.sessions")
+            require("dieter.legendary")
 
-require("dieter.mytabout")
-require("dieter.mynull-ls")
-require('leap').add_default_mappings()
+            require('telescope').load_extension('lsp_handlers')
 
-vim.cmd('colorscheme gruvbox-material')
+            require("dieter.mytabout")
+            require("dieter.mynull-ls")
+            require('leap').add_default_mappings()
+            require('dieter.mytextobjects')
+            local ts_repeat_move = require "nvim-treesitter.textobjects.repeatable_move"
+
+            -- Repeat movement with ; and ,
+            -- ensure ; goes forward and , goes backward regardless of the last direction
+            vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
+            vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
+
+            -- vim way: ; goes to the direction you were moving.
+            -- vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
+            -- vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
+
+            -- Optionally, make builtin f, F, t, T also repeatable with ; and ,
+            vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f)
+            vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F)
+            vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
+            vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
+            vim.cmd('colorscheme gruvbox-material')
 
