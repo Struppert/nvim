@@ -28,9 +28,7 @@ null-ls tut in Trouble aber noch was zu tun.
 wilder init von Python hat nicht geklappt (messages)
 
 weitere Plugins:
-folke/noice.nvim (eher nicht)
 folke/zen-mode.nvim
-
 
 LintaoAmons/scratch.nvim
 metakirby5/codi.vim

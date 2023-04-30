@@ -2,6 +2,7 @@
 if vim.g.neovide then
     -- Put anything you want to happen only in Neovide here
     vim.o.guifont ="CaskaydiaCove Nerd Font Mono:h12"
+    vim.g.neovide_remember_window_size = true
 else
 
 end

@@ -6,6 +6,7 @@ vim.cmd.packadd('packer.nvim')
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
+    use 'lewis6991/impatient.nvim'
 
     use {
         'lewis6991/gitsigns.nvim',
@@ -180,6 +181,9 @@ return require('packer').startup(function(use)
             }
         end
     }
+
+    use {'simrat39/symbols-outline.nvim'}
+
 end)
 
 

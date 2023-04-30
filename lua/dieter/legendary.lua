@@ -32,8 +32,26 @@ else
             { '<leader>hcn', ':lua require("harpoon.ui").nav_next()<CR>', description = 'harpoon nav_next'},
             { '<leader>hcp', ':lua require("harpoon.ui").nav_prev()<CR>', description = 'harpoon nav_prev'},
 
+            -- TroubleToggle
+            { '<leader>xx', ':TroubleToggle<CR>', description = 'TroubleToggle'},
+            { '<leader>xw', ':TroubleToggle workspace_diagnostics', description = 'TroubleToggle workspace_diagnostics'},
+            { '<leader>xd', ':TroubleToggle workspace_diagnostics<CR>', description = 'lua require("harpoon.ui").nav_prev()'},
+            { '<leader>xl', ':TroubleToggle loclist<CR>', description = 'TroubleToggle loclist'},
+            { '<leader>xq', ':TroubleToggle quickfix<CR>', description = 'TroubleToggle quickfix'},
+            { '<leader>gR', ':TroubleToggle lsp_references<CR>', description = 'TroubleToggle lsp_references'},
 
+            -- hover
+            { '<leader>K', ':lua require("hover").hover()<CR>', description = 'Hover'},
+            { '<leader>gK',':lua require("hover").hover_select()<CR>', description = 'Hover hover_select'},
 
+            -- overseer
+            { '<leader>oo', ':OverseerToggle<CR>', description = 'OverseerToggle'},
+            { '<leader>or', ':OverseerRun<CR>', description = 'OverseerRun'},
+            { '<leader>oc', ':OverseerRunCmd<CR>', description = 'OverseerRunCmd'},
+            { '<leader>ol', ':OverseerLoadBundle<CR>', description = 'OverseerLoadBundle'},
+            { '<leader>ob', ':OverseerBuild<CR>', description = 'OverseerBuild'},
+            { '<leader>od', ':OverseerQuickAction<CR>', description = 'OverseerQuickAction'},
+            { '<leader>ot', ':OverseerTaskAction<CR>', description = 'OverseerTaskAction'},
 
             --
             -- ab hier ist noch Baustelle

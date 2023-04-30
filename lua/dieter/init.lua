@@ -1,11 +1,11 @@
 require("dieter.set")
 require("dieter.remap")
+require'impatient'.enable_profile()
 --
 -- ab hier kommen die Plugins:
 --
 require("dieter.lualine")
 require("dieter.compiler-explorer")
-require("dieter.which-key")
 require("dieter.unimpaired")
 require("dieter.todo-comments")
 require("dieter.wilder")
@@ -113,12 +113,12 @@ require('telescope').setup {
         -- Default configuration for telescope goes here:
         -- config_key = value,
         mappings = {
-            i = {
+            --i = {
                 -- map actions.which_key to <C-h> (default: <C-/>)
                 -- actions.which_key shows the mappings for your picker,
                 -- e.g. git_{create, delete, ...}_branch for the git_branches picker
-                ["<C-h>"] = "which_key"
-            }
+            --["<C-h>"] = "which_key"
+            --}
         }
     },
     pickers = {
@@ -318,6 +318,7 @@ require('telescope').setup {
                     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
                     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
                     vim.keymap.set('n', '<space>f', function()
+                        print("format")
                         vim.lsp.buf.format { async = true }
                     end, opts)
                 end,
@@ -343,6 +344,7 @@ require('telescope').setup {
 
             require("dieter.sessions")
             require("dieter.legendary")
+            --require("dieter.which-key")
 
             require('telescope').load_extension('lsp_handlers')
 
