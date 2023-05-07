@@ -191,9 +191,9 @@ require('telescope').setup {
                 server = {
                     on_attach = function(_, bufnr)
                         -- Hover actions
-                        vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+                        --vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
                         -- Code action groups
-                        vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+                        --vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
                     end,
                 },
             })
@@ -248,76 +248,6 @@ require('telescope').setup {
             lsp.nvim_workspace()
 
             lsp.setup()
-
-            -- Setup nvim-cmp.
-            local cmp = require 'cmp'
-
-            cmp.setup({
-                snippet = {
-                    -- REQUIRED - you must specify a snippet engine
-                    expand = function(args)
-                        --vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-                        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-                        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-                        -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
-                    end,
-                },
-                sorting = {
-                    comparators = {
-                        cmp.config.compare.offset,
-                        cmp.config.compare.exact,
-                        cmp.config.compare.recently_used,
-                        require("clangd_extensions.cmp_scores"),
-                        cmp.config.compare.kind,
-                        cmp.config.compare.sort_text,
-                        cmp.config.compare.length,
-                        cmp.config.compare.order,
-                    },
-                },
-                mapping = {
-                    ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-                    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-                    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-                    ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-                    ['<C-e>'] = cmp.mapping({
-                        i = cmp.mapping.abort(),
-                        c = cmp.mapping.close(),
-                    }),
-                    ['<CR>'] = cmp.mapping.confirm({ select = true }),
-                },
-                sources = cmp.config.sources({
-                    { name = 'nvim_lsp' },
-                    { name = 'vsnip' }, -- For vsnip users.
-                    -- { name = 'luasnip' }, -- For luasnip users.
-                    -- { name = 'ultisnips' }, -- For ultisnips users.
-                    -- { name = 'snippy' }, -- For snippy users.
-                }, {
-                    { name = 'buffer' },
-                })
-            })
-
-            -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-            cmp.setup.cmdline('/', {
-                sources = {
-                    { name = 'buffer' }
-                }
-            })
-
-            -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-            cmp.setup.cmdline(':', {
-                sources = cmp.config.sources({
-                    { name = 'path' }
-                }, {
-                    { name = 'cmdline' }
-                })
-            })
-
-            require 'cmp'.setup {
-                sources = {
-                    { name = 'nvim_lsp' }
-                }
-            }
-
             -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
             --local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
@@ -371,7 +301,6 @@ require('telescope').setup {
                 })
 
                 require('dieter.overseer')
-                require("dieter.hover")
                 require("dieter.trouble")
                 --require("dieter.cmake-tools")
 
@@ -393,7 +322,6 @@ require('telescope').setup {
                 --require("dieter.which-key")
 
                 require('telescope').load_extension('lsp_handlers')
-
                 require('dieter.mybqf')
                 require("dieter.mytabout")
                 require("dieter.mynull-ls")
@@ -415,5 +343,7 @@ require('telescope').setup {
                 vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F)
                 vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
                 vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
+                require('dieter.mycmp')
+                --require("dieter.hover")
                 vim.cmd('colorscheme gruvbox-material')
 
