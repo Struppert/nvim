@@ -183,7 +183,9 @@ return require('packer').startup(function(use)
     }
 
     use {'simrat39/symbols-outline.nvim'}
+    use {'kevinhwang91/nvim-bqf'}
 
+    use {'simrat39/rust-tools.nvim'}
 end)
 
 
