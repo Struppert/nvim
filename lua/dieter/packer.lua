@@ -185,8 +185,14 @@ return require('packer').startup(function(use)
 
     use {'simrat39/symbols-outline.nvim'}
     use {'kevinhwang91/nvim-bqf'}
-
+    use {"KostkaBrukowa/definition-or-references.nvim"}
     use {'simrat39/rust-tools.nvim'}
+    use {'mfussenegger/nvim-dap'}
+    use {"rcarriga/nvim-dap-ui"}
+    use {'theHamsta/nvim-dap-virtual-text'}
+    use {'nvim-telescope/telescope-dap.nvim'}
+
+    use {'tanvirtin/vgit.nvim'}
 end)
 
 

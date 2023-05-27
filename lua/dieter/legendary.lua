@@ -53,6 +53,10 @@ else
             { '<leader>od', ':OverseerQuickAction<CR>', description = 'OverseerQuickAction'},
             { '<leader>ot', ':OverseerTaskAction<CR>', description = 'OverseerTaskAction'},
 
+
+            -- lsp
+            -- { 'gd', 'lua: require("definition-or-references").definition_or_references', description = 'definition_or_references', mode = {'n'}},
+
             -- cmp
             --{ '<C-o>', ':lua require("cmp").mapping.complete()', description = 'cmp complete', mode = { 'i', 'c' }},
             { '<C-b>', ':lua require("cmp").mapping.scroll_docs(-4)', description = 'cmp scroll -4', mode = { 'i', 'c' }},

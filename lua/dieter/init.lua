@@ -318,6 +318,8 @@ require('telescope').setup {
                 require('telescope').load_extension('workspaces')
 
                 require("dieter.sessions")
+                require("dieter.dap")
+                require('telescope').load_extension('dap')
                 require("dieter.legendary")
                 --require("dieter.which-key")
 
@@ -328,6 +330,8 @@ require('telescope').setup {
                 require('leap').add_default_mappings()
                 require('dieter.mytextobjects')
                 local ts_repeat_move = require "nvim-treesitter.textobjects.repeatable_move"
+
+                require('dieter.myvgit')
 
                 -- Repeat movement with ; and ,
                 -- ensure ; goes forward and , goes backward regardless of the last direction
