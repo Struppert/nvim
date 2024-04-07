@@ -38,8 +38,7 @@ local wk = require("which-key")
 wk.register({
   ["<leader>o"] = {
     name = "+overseer",
-    o = { "<cmd>OverseerOpen<cr>", "OverseerOpen" },
-    c = { "<cmd>OverseerClose<cr>", "OverseerClose" },
+    o = { "<cmd>OverseerToggle<cr>", "OverseerToggle" },
     r = { "<cmd>OverseerRun<cr>", "OverseerRun" },
   },
 })
