@@ -36,6 +36,13 @@ vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]])
 local wk = require("which-key")
 
 wk.register({
+  ["<leader>g"] = {
+    n = { "<cmd>Neogit<cr>", "Neogit" },
+    --r = { "<cmd>OverseerRun<cr>", "OverseerRun" },
+  },
+})
+
+wk.register({
   ["<leader>o"] = {
     name = "+overseer",
     o = { "<cmd>OverseerToggle<cr>", "OverseerToggle" },

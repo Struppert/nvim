@@ -1,12 +1,17 @@
 return {
   -- Hier fügen Sie andere Plugins hinzu
-  { "sindrets/diffview.nvim" },
+  -- { "sindrets/diffview.nvim" },
   -- Hier fügen wir eine benutzerdefinierte Konfiguration für diffview.nvim hinzu
   {
     "sindrets/diffview.nvim",
     opts = function()
       require("diffview").setup({
         -- Hier fügen Sie Ihre diffview-Konfiguration ein
+        view = {
+          merge_tool = {
+            layout = "diff4_mixed",
+          },
+        },
         diff_binaries = false, -- Zeige Diffs für Binärdateien
         enhanced_diff_hl = false, -- Benutze verbessertes Highlighting für Diffs
         use_icons = true, -- Benutze Icons in der Dateiliste
@@ -25,12 +30,12 @@ return {
         },
         key_bindings = {
           disable_defaults = false, -- Standard-Tastenbindungen nicht deaktivieren
-          --view = {
+          -- view = {
           --  ["<tab>"] = actions.select_next_entry, -- Nächsten Eintrag auswählen
           --  ["<s-tab>"] = actions.select_prev_entry, -- Vorherigen Eintrag auswählen
           --  ["gf"] = actions.goto_file, -- Gehe zur Datei
           --  ["<C-w><C-f>"] = actions.goto_file_split, -- Datei in neuem Split öffnen
-          --  -- Weitere Keybindings nach Bedarf
+          -- -- Weitere Keybindings nach Bedarf
           --},
           --file_panel = {
           --  ["j"] = actions.next_entry, -- Nächsten Eintrag auswählen
