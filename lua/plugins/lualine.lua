@@ -4,6 +4,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     optional = true,
     opts = function(_, opts)
+      local ovs = require("overseer")
       table.insert(opts.sections.lualine_c, {
         "aerial",
         sep = " ", -- separator between symbols
@@ -24,6 +25,22 @@ return {
 
         -- Color the symbol icons.
         colored = true,
+      })
+      table.insert(opts.sections.lualine_x, {
+        "overseer",
+        label = "", -- Prefix for task counts
+        colored = true, -- Color the task icons and counts
+        symbols = {
+          [ovs.STATUS.FAILURE] = "F:",
+          [ovs.STATUS.CANCELED] = "C:",
+          [ovs.STATUS.SUCCESS] = "S:",
+          [ovs.STATUS.RUNNING] = "R:",
+        },
+        unique = false, -- Unique-ify non-running task count by name
+        name = nil, -- List of task names to search for
+        name_not = false, -- When true, invert the name search
+        status = nil, -- List of task statuses to display
+        status_not = false, -- When true, invert the status search
       })
     end,
   },
