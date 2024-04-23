@@ -8,7 +8,7 @@ return {
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   },
-  config = function()
+  config = function(_, opts)
     require("telescope").setup({
       -- the rest of your telescope config goes here
       extensions = {
