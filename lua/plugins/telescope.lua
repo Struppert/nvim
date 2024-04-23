@@ -8,8 +8,6 @@ return {
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   },
-<<<<<<< HEAD
-=======
   config = function(_, opts)
     require("telescope").setup({
       -- the rest of your telescope config goes here
@@ -24,7 +22,6 @@ return {
     require("telescope").load_extension("undo")
     vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
   end,
->>>>>>> origin/sourcegraph
   {
     "nvim-telescope/telescope.nvim",
     keys = {
