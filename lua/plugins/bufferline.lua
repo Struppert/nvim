@@ -1,4 +1,4 @@
 return {
   -- disable bufferline
-  { "akinsho/bufferline.nvim", enabled = true, },
+  { "akinsho/bufferline.nvim", enabled = true },
 }
