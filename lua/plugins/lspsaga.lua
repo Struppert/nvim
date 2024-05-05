@@ -3,6 +3,21 @@ return {
 
   config = function()
     require("lspsaga").setup({
+      lightbulb = {
+        enabled = true,
+        sign = false,
+        virtual_text = true,
+        -- Priority of the gutter sign
+        priority = 10,
+      },
+      code_action = {
+        enable = true,
+        sign = true,
+        sign_priority = 20,
+        virtual_text = true,
+        show_server_name = true,
+        extend_gitsigns = true,
+      },
       use_saga_diagnostic_sign = true,
       error_sign = "",
       warn_sign = "",
