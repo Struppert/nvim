@@ -6,9 +6,10 @@ return {
     config = function(_, opts)
       local sg = require("sg")
       sg.setup(opts)
+      vim.api.nvim_set_hl(0, "CmpItemKindCody", { fg = "Blue" })
     end,
     -- If you have a recent version of lazy.nvim, you don't need to add this!
-    build = "nvim -l build/init.lua",
+    -- build = "nvim -l build/init.lua",
     --[[
     opts = function()
       local cmp = require("cmp")
@@ -29,6 +30,7 @@ return {
         },
       })
     end,
+    ]]
     keys = {
       {
         "<c-a>",
@@ -36,6 +38,5 @@ return {
         desc = "sourcegraph fuzzy_search_results",
       },
     },
-  ]]
   },
 }
