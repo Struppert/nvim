@@ -1,3 +1,3 @@
-return {
-  { "folke/neodev.nvim", opts = {}, enabled = true },
-}
+-- return {
+--   { "folke/neodev.nvim", opts = {}, enabled = true },
+-- }

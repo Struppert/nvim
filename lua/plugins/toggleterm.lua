@@ -12,7 +12,7 @@ return {
       insert_mappings = true,
       shell = "powershell",
       close_on_exit = true,
-      terminal_command = 'powershell -NoExit -Command "& { . $PROFILE } "',
+      -- terminal_command = 'powershell -NoExit -Command "& { . $PROFILE } "',
     },
   },
 }

@@ -376,6 +376,7 @@ return {
       -- vim.api.nvim_command("colorscheme catppuccin")
     end,
   },
+  { "EdenEast/nightfox.nvim" },
   {
     "folke/tokyonight.nvim",
     lazy = true,
@@ -395,8 +396,9 @@ return {
     opts = {
       --colorscheme = "gruvbox",
       --colorscheme = "catppuccin-mocha",
-      colorscheme = "kanagawa-dragon",
-      -- colorscheme = "tokyonight",
+      --colorscheme = "kanagawa-dragon",
+      --colorscheme = "tokyonight",
+      colorscheme = "nightfox",
     },
   },
 }
